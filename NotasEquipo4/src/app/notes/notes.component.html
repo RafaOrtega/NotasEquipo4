@@ -1,0 +1,28 @@
+<h2>Crear Nota</h2>
+
+<form #fg="ngForm" (ngSubmit)="onSubmit(fg)">
+    <div class="row">
+    <input type="text" class="form-control" placeholder="Titulo" name="tituloNota" ngModel >
+    </div>
+    <div class="row">
+    <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" ngModel >
+</div>
+    <div class="row">
+    <input type="date" class="form-control" placeholder="Fecha inicio" name="fechaInicio" ngModel >
+</div>
+    <div class="row">
+    <input type="date" class="form-control" placeholder="Fecha fin" name="fechaFin" ngModel >
+</div>
+    <div class="row">
+    <input type="hidden" class="form-control" placeholder="Estatus" value="Creado" name="estatus" ngModel >
+</div>
+    <div class="row">
+    <select class="form-select" aria-label="Tipo de nota" name="tipo" ngModel>
+        <option selected>Seleccione</option>
+        <option value="Nota">Nota</option>
+        <option value="Tarea">Tarea</option>
+        <option value="Recordatorio">Recordatorio</option>
+    </select>
+</div>
+    <input type="submit" value="Guardar">
+</form>
