@@ -30,21 +30,21 @@ logIn(email: string, password: string): boolean {​​ // /login POST 
   let pos = emails.indexOf(email)
   if (pos != -1) {​​      
     if (passwords[pos] === password) {​​
-      localStorage.isLogIn = true;
+      localStorage.isLogIn =1;
       return true
     }​​
     else{​​
-      localStorage.isLogIn = false;
+      localStorage.isLogIn =0;
       return false
     }​​
   }​​ else {​​
-    localStorage.isLogIn = false;
+    localStorage.isLogIn =0;
     return false;
   }​
 }​​
 
-getIsLogin(): boolean{​​    
-    return Boolean(localStorage.isLogIn);
+getIsLogin(): Number{​​    
+    return parseInt(localStorage.isLogIn);
   }​​
 
 logOut(){
