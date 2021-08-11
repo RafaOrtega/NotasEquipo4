@@ -4,13 +4,23 @@
 <table class="table">
     <thead>
         <tr>
+       
             <th>Nombre</th>
-            <th>ID</th>
             <th>Apellido</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Notas</th>
+           
         </tr>
     </thead>
+    <tbody>
+        <tr *ngFor= "let userRegister of usuarios">
+          
+            <td>{{userRegister.nombre}}</td>
+            <td>{{userRegister.apellidos}}</td>
+            <td>{{userRegister.telefono}}</td>
+            <td>{{userRegister.email}}</td>
+         
+        </tr>
+    </tbody>
     
 </table>
