@@ -16,11 +16,11 @@ export class LoginComponent implements OnInit {
     password:""
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private userServices: UserService) { }
   
 
   ngOnInit(): void {
-    this.loginUser(); 
+    //this.loginUser();
   }
 
   onSubmit(fu: NgForm){
@@ -33,11 +33,12 @@ export class LoginComponent implements OnInit {
     }
     this.logins.push(this.login);
     console.log(this.logins)
+    this.loginUser(email,password);
   }
 
-  async loginUser(){
+  async loginUser(email:any,password:any){
     try{
-      let valor = await this.userService.logIn("jos@jose.com","098765");
+      let valor = await this.userServices.logIn(email,password);
       console.log(valor);
     }catch(err){
       console.log(err);

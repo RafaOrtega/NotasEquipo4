@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
 
 import { Register } from '../register/registers.module';
 
@@ -8,7 +9,7 @@ import { Register } from '../register/registers.module';
 export class ApiService {
   users: Register[]=[];
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.users = JSON.parse(localStorage.users||"[]");
   }
 
@@ -31,14 +32,19 @@ logIn(email: string, password: string): boolean {​​ // /login POST 
   if (pos != -1) {​​      
     if (passwords[pos] === password) {​​
       localStorage.isLogIn =1;
+      this.router.navigateByUrl("/users")
       return true
     }​​
     else{​​
       localStorage.isLogIn =0;
+      alert("No tienes acceso. Please Log In");
+      this.router.navigate(["login"],{queryParams: {back_url: this.router.url}})
       return false
     }​​
   }​​ else {​​
     localStorage.isLogIn =0;
+    alert("No tienes acceso. Please Log In");
+    this.router.navigate(["login"],{queryParams: {back_url: this.router.url}})
     return false;
   }​
 }​​
