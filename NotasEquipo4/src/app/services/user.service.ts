@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Register } from '../register/registers.module';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Register } from '../register/registers.module';
 export class UserService {
   users: Register[]=[];
   
-  constructor(private apiServices: ApiService) { }
+  constructor(private apiServices: ApiService, private router: Router) { }
   registertUser(user: Register){
     return new Promise((resolve,reject)=>{
       if (user.email  != null){

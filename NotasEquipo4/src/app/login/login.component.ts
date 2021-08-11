@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   async loginUser(){
     try{
-      let valor = await this.userService.logIn("jose@jose.com","0987");
+      let valor = await this.userService.logIn("jos@jose.com","098765");
       console.log(valor);
     }catch(err){
       console.log(err);
