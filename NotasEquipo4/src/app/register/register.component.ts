@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 import { Register } from './registers.module';
 
 @Component({
@@ -9,8 +10,6 @@ import { Register } from './registers.module';
 })
 export class RegisterComponent implements OnInit {
 
-  //registers: Register[]=[];
-
   register: Register={
     nombre: "",
     apellidos:"",
@@ -19,24 +18,39 @@ export class RegisterComponent implements OnInit {
     password: ""
 
   }
-  constructor() { }
+  userForm: FormGroup;
+  message: any =""
+
+  constructor(private userService: UserService) {
+    this.userForm = new FormGroup({
+      nombre: new FormControl('',[Validators.required]),
+    apellidos:new FormControl('',[Validators.required]),
+    telefono: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required]), 
+    password: new FormControl('',[Validators.required,Validators.minLength(5)])
+    })
+    
+  }
 
   ngOnInit(): void {
   }
-  onSubmit(fu: NgForm){
-    this.register= fu.value;
-    console.log(this.register)
-    /*const {nombre,apellidos,telefono,email,password} = fu.value
 
-    this.register={
-      nombre: nombre,
-    apellidos: apellidos,
-    telefono: telefono,
-    email: email, 
-    password: password
+  async onSubmit({value,valid}:{value: Register, valid:boolean}){//fu: NgForm){ //onSubmit viene del form de Register
+    //this.register= fu.value;
+    console.log(value, valid)
+    if(valid){
+      try{
+        this.message= await this.userService.registertUser(value)
+        console.log(typeof this.message,this.message)
+      }catch(err){
+        console.log(err)
+      }
+      this.userForm.reset()
+    }else{
+      this.message = "Tienes campos invalidos"
+      console.log(this.userForm)
     }
-    this.registers.push(this.register);
-    console.log(this.registers)*/
+
   }
 
 }
