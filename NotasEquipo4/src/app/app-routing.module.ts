@@ -12,8 +12,7 @@ const routes: Routes = [
   { path: "users", component: UsersComponent, canActivate: [AuthGuardService]},
   { path: 'new-notes', component: NotesComponent},
   { path: "notas", component: NotasComponent},
-  {path: 'login', component: LoginComponent},
- 
+  {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({

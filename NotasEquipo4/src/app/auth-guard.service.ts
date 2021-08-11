@@ -15,7 +15,7 @@ export class AuthGuardService implements CanActivate {
       alert("No tienes acceso. Please Log In");
       this.router.navigate(["login"],{queryParams: {back_url: router.url}})
       return false;
-    }
+    }else
     return true;
   }
 }

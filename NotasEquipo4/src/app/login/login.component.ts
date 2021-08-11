@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { loginModule } from './login.module';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -15,13 +14,13 @@ export class LoginComponent implements OnInit {
   login: loginModule={
     email: "",
     password:""
-
   }
-  constructor(private userServices: UserService) { }
+
+  constructor(private userService: UserService) { }
   
 
   ngOnInit(): void {
-    this.loginUser();
+    this.loginUser(); 
   }
 
   onSubmit(fu: NgForm){
@@ -38,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   async loginUser(){
     try{
-      let valor = await this.userServices.logIn("juanp@gmail.com","12334");
+      let valor = await this.userService.logIn("jose@jose.com","0987");
       console.log(valor);
     }catch(err){
       console.log(err);
