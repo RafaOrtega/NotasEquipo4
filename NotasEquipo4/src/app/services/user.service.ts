@@ -26,6 +26,23 @@ getUsers(){
   })
 }
 
+<<<<<<< HEAD
+=======
+logIn(email: string, password: string){
+  return new Promise((resolve,reject)=>{
+    let isUser = this.apiServices.logIn(email,password);
+    if(isUser){
+      resolve(true)
+    }else{
+      reject(false)
+    }
+  })
+}
+
+isLogin(){
+  return this.apiServices.getIsLogin();
+}
+>>>>>>> ee9c2cd07ec78d2f1bb93f09cbb43ba43b2fcdb1
 
 }
 

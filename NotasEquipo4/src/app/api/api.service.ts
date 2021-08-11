@@ -23,7 +23,32 @@ export class ApiService {
     return this.users
   }
 
-  logIn(){} //login POST
-  logOut(){} //login POST
+logIn(email: string, password: string): boolean {​​ // /login POST    
+  this.users = JSON.parse(localStorage.users || "[]");    
+  let emails = this.users.map(function (e) {​​ return e.email }​​)   
+  let passwords = this.users.map(function (e) {​​ return e.password }​​)    
+  let pos = emails.indexOf(email)   
+  if (pos != -1) {​​      
+    if (passwords[pos] === password) {​​
+      localStorage.isLogIn =1;
+      return true
+    }​​
+    else{​​
+      localStorage.isLogIn =0;
+      return false
+    }​​
+  }​​ else {​​
+    localStorage.isLogIn =0;
+    return false;
+  }​
+}​​
+
+getIsLogin(): Number{​​    
+    return parseInt(localStorage.isLogIn);
+  }​​
+
+logOut(){
+
+}
 
 }
