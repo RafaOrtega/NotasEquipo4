@@ -1,27 +1,27 @@
 <h2>REGISTRO DE USUARIOS</h2>
 
 
-<form #fu="ngForm" (ngSubmit)="onSubmit(fu)">
+<form novalidate (ngSubmit)="onSubmit(userForm)" [formGroup]= "userForm">
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre" ngModel >
+        <input id="nombre" class="form-control" type="text" placeholder="Nombre" formControlName="nombre" ngModel >
     </div>
     
     <div class="mb-3">
         <label for="apellido" class="form-label">Apellidos</label>
-        <input id="apellido" class="form-control" type="text" placeholder="Apellidos" name="apellidos" ngModel >
+        <input id="apellido" class="form-control" type="text" placeholder="Apellidos" formControlName="apellidos" ngModel >
     </div>
     <div class="mb-3">
         <label for="telefono" class="form-label">Telefono</label>
-    <input id="telefono" class="form-control" type="number" placeholder="Number" name="telefono" ngModel >
+    <input id="telefono" class="form-control" type="number" placeholder="Number" formControlName="telefono" ngModel >
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-    <input id="email" class="form-control" type="text" placeholder="Email" name="email" ngModel >
+    <input id="email" class="form-control" type="text" placeholder="Email" formControlName="email" ngModel >
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-    <input id="password"class="form-control" type="password" placeholder="Password" name="password" ngModel >
+    <input id="password"class="form-control" type="password" placeholder="Password" formControlName="password" ngModel >
     </div>
     <input class="btn btn-primary" type="submit" value="Guardar">
 </form>
