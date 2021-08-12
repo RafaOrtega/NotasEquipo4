@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Register } from '../register/registers.module';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
+import { Note } from '../notes/notes.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: Register[]=[];
+  notes: Note[]=[];
   
   constructor(private apiServices: ApiService, private router: Router) { }
   registertUser(user: Register){

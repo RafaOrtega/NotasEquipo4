@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'new-notes', component: NotesComponent},
   { path: "notas", component: NotasComponent},
   {path: 'login', component: LoginComponent}
+
 ]
 
 @NgModule({

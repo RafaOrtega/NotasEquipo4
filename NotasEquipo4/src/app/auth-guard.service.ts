@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { resetFakeAsyncZone } from '@angular/core/testing';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { UserService } from './services/user.service';
 
