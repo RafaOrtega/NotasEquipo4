@@ -244,3 +244,23 @@
   </div>
 </div>
 
+<table class="table">
+  <thead>
+      <tr>
+          <th>Titulo</th>
+          <th>Descripcicon</th>
+          <th>Tipo</th>
+         
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor= "let notasCreadas of notes">
+        
+          <td>{{notasCreadas.tituloNota}}</td>
+          <td>{{notasCreadas.descripcion}}</td>
+          <td>{{notasCreadas.tipo}}</td>
+       
+      </tr>
+  </tbody>
+  
+</table>

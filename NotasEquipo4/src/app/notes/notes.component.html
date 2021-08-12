@@ -1,33 +1,31 @@
 <h2>Crear Nota</h2>
 
-<form #fg="ngForm" (ngSubmit)="onSubmit(fg)">
+<form novalidate (ngSubmit)="onSubmit(noteForm)" [formGroup]="noteForm">
     <div class="mb-3">
         <label for="titulo" class="form-label">Titulo</label>
-        <input type="text" class="form-control" placeholder="Titulo" name="tituloNota" ngModel>
+        <input type="text" class="form-control" placeholder="Titulo" formControlName="tituloNota" ngModel>
     </div>
     <div class="mb-3">
         <label for="descr" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" ngModel>
+        <input type="text" class="form-control" placeholder="Descripcion" formControlName="descripcion" ngModel>
     </div>
     <div class="mb-3">
         <label for="fecha1" class="form-label">Fecha Inicio</label>
-        <input type="date" class="form-control" placeholder="Fecha inicio" name="fechaInicio" ngModel>
+        <input type="date" class="form-control" placeholder="Fecha inicio" formControlName="fechaInicio" ngModel>
     </div>
     <div class="mb-3">
         <label for="fecha2" class="form-label">Fecha Fin</label>
-        <input type="date" class="form-control" placeholder="Fecha fin" name="fechaFin" ngModel>
+        <input type="date" class="form-control" placeholder="Fecha fin" formControlName="fechaFin" ngModel>
     </div>
-    <div class="mb-3">
-        <input type="hidden" class="form-control" placeholder="Estatus" value="creado" name="estatus" ngModel>
-    </div>
+
     <div class="mb-3">
         <label for="tipoNota" class="form-label">Tipo de Nota</label>
-        <select class="form-select" name="tipo" ngModel>
+        <select class="form-select" formControlName="tipo" ngModel>
             <option selected disabled value="">Seleccione</option>
             <option value="Nota">Nota</option>
             <option value="Tarea">Tarea</option>
             <option value="Recordatorio">Recordatorio</option>
         </select>
     </div>
-    <input type="submit" value="Guardar">
+    <input type="submit" value="Guardar"> <!--routerLink="/notas" > al poner este redireccionamiento ya no guarda la ultima nota-->
 </form>

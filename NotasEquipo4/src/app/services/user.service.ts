@@ -21,10 +21,28 @@ export class UserService {
       }
     })
   }
+
+  nuevaNota(note: Note){
+    return new Promise((resolve,reject)=>{
+      if(note.tituloNota != null){
+        this.apiServices.setNote(note)
+        resolve("Exito de operacion, nota guardada")
+      }else{
+        reject("Nota no guardado")
+      }
+    })
+  }
 getUsers(){
   return new Promise<Register[]>((resolve, reject)=>{
     this.users = this.apiServices.getUsers();
     resolve(this.users);
+  })
+}
+
+obtenerNotes(){
+  return new Promise<Note[]>((resolve, reject)=>{
+    this.notes = this.apiServices.getNotes();
+    resolve(this.notes);
   })
 }
 

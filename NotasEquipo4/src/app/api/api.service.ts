@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Register } from '../register/registers.module';
+import { Note } from '../notes/notes.module';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   users: Register[]=[];
+  notes: Note[]=[];
 
   constructor(private router: Router) { 
     this.users = JSON.parse(localStorage.users||"[]");
+    this.notes = JSON.parse(localStorage.notes||"[]");
   }
 
   setUser(user: Register){ // users POST
@@ -17,11 +21,22 @@ export class ApiService {
     console.log(this.users)
     localStorage.users = JSON.stringify(this.users);
   }
+  setNote(note: Note){ // poner Nota en localStorage
+    this.notes.push(note);
+    console.log(this.notes)
+    localStorage.notes = JSON.stringify(this.notes);
+  }
+  //------
 
   getUsers(): Register[]{ // users POST
     this.users = JSON.parse(localStorage.users || "[]")
     return this.users
   }
+  getNotes(): Note[]{ // users POST
+    this.notes = JSON.parse(localStorage.notes)
+    return this.notes
+  }
+
 
 logIn(email: string, password: string): boolean {​​ // /login POST    
   this.users = JSON.parse(localStorage.users || "[]");    
