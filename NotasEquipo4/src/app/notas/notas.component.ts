@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../notes/notes.module';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -9,14 +10,18 @@ import { Note } from '../notes/notes.module';
 })
 
 export class NotasComponent implements OnInit{
-
-  constructor() { }
+  notes: Note[]=[];
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getNotee();
   }
+async getNotee(){
+  try{
+    this.notes = await this.userService.obtenerNotes();
+  }catch(err){
 
-getNote(){
-
+  }
 }
 
 }
