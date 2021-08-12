@@ -4,6 +4,5 @@ export interface Note{
   descripcion: string,
   fechaInicio: string,
   fechaFin: string,
-  tipo: string,
-  estatus: string
+  tipo: string
 }
