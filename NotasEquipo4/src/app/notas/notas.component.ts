@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Note } from '../notes/notes.module';
+import { NotesComponent } from '../notes/notes.component';
 
 
 @Component({
@@ -9,14 +9,20 @@ import { Note } from '../notes/notes.module';
 })
 
 export class NotasComponent implements OnInit{
+  notes: NotasComponent[]=[];
 
-  constructor() { }
+  constructor(private notesComponet: NotesComponent) { }
 
   ngOnInit(): void {
+    this.getNote()
   }
 
-getNote(){
-
-}
+  async getNote(){
+    try{
+      this.notes = await this.notesComponet.ngOnInit()
+    }catch(err){
+      console.log(err)
+    }
+  }
 
 }

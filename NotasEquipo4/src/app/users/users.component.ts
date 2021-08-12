@@ -19,7 +19,7 @@ usuarios: Register[] =[];
     try{
       this.usuarios = await this.userService.getUsers()
     }catch(err){
-
+      
     }
    
   }
