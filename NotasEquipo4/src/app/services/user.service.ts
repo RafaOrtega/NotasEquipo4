@@ -21,6 +21,17 @@ export class UserService {
       }
     })
   }
+
+  nuevaNota(note: Note){
+    return new Promise((resolve,reject)=>{
+      if(note.tituloNota != null){
+        this.apiServices.setNote(note)
+        resolve("Exito de operacion, nota guardada")
+      }else{
+        reject("Nota no guardado")
+      }
+    })
+  }
 getUsers(){
   return new Promise<Register[]>((resolve, reject)=>{
     this.users = this.apiServices.getUsers();
@@ -28,6 +39,12 @@ getUsers(){
   })
 }
 
+obtenerNotes(){
+  return new Promise<Note[]>((resolve, reject)=>{
+    this.notes = this.apiServices.getNotes();
+    resolve(this.notes);
+  })
+}
 
 logIn(email: string, password: string){
   return new Promise((resolve,reject)=>{
