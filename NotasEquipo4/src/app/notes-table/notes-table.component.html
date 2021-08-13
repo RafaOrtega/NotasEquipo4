@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo Nota</th>
+            <th>DESCRIPCION</th>
+            <th>TIPO</th>
+            <th>ESTATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let note of notes;">
+            <td>{{note.tituloNota}}</td>
+            <td>{{note.descripcion}}</td>
+            <td>{{note.tipo}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuardService } from './auth-guard.service';
 import { NotasComponent } from './notas/notas.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: "register", component: RegisterComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'new-notes', component: NotesComponent},
   { path: "notas", component: NotasComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent}
  
 ]
 

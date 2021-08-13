@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
 import { Note } from './notes.module';
-import { Location } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-notes',
@@ -9,26 +9,49 @@ import { Location } from '@angular/common';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  notes: Note[]= [];
+  //notes: Note[]= [];
   note: Note= {
     tituloNota: "",
     descripcion: "",
     fechaInicio: "",
     fechaFin: "",
-    tipo: "",
-    estatus: ""
+    tipo: ""
   };
 
-  constructor(private location: Location) { }
+  noteForm: FormGroup;
+  message: any =""
 
-  ngOnInit(): void {
-    console.log(this.location)
+  constructor(private userService: UserService) { 
+    this.noteForm= new FormGroup({
+      tituloNota: new FormControl('',[Validators.required]),
+    descripcion: new FormControl('',[Validators.required]),
+    fechaInicio: new FormControl('',[Validators.required]),
+    fechaFin: new FormControl('',[Validators.required]),
+    tipo: new FormControl('',[Validators.required])
+    })
   }
 
-  onSubmit(fg: NgForm): void{
+  ngOnInit(): void {
+  }
+
+  //onSubmit(fg: NgForm): void{
+async onSubmit({value,valid}:{value: Note, valid:boolean}){ 
+     console.log(value,valid)
+     if(valid){
+      try{
+        this.message= await this.userService.nuevaNota(value)
+        console.log(typeof this.message,this.message)
+      }catch(err){
+        console.log(err)
+      }
+      this.noteForm.reset()
+    }else{
+      this.message = "Tienes campos invalidos"
+      console.log(this.noteForm)
+    }
 
     // destructuring
-    
+    /*
   const {tituloNota,descripcion,fechaInicio,fechaFin,tipo,estatus} = fg.value
     
     this.note= {
@@ -40,7 +63,7 @@ export class NotesComponent implements OnInit {
       estatus:estatus
     }
     this.notes.push(this.note);
-    console.log(this.notes)
+    console.log(this.notes)*/
   }
 
   /*goBack(): void{

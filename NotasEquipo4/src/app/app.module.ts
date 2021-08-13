@@ -9,6 +9,8 @@ import { NotesComponent } from './notes/notes.component';
 import { AppRoutingModule } from './app-routing.module';
 import {  UsersComponent } from './users/users.component'
 import { HttpClientModule } from '@angular/common/http';
+import { NotesTableComponent } from './notes-table/notes-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     UsersComponent,
     LoginComponent,
-    NotesComponent
+    NotesComponent,
+    NotesTableComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
