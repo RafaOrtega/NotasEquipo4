@@ -1,15 +1,11 @@
 
 <div class="container">
-    <div>
-        <button class="btn btn-primary btn-lg" routerLink="/new-notes">Nueva nota</button>
-    </div>
 <table class="table">
   <thead>
       <tr>
           <th>Titulo</th>
           <th>Descripcicon</th>
           <th>Tipo</th>
-         
       </tr>
   </thead>
   <tbody>
@@ -18,9 +14,12 @@
           <td>{{notasCreadas.tituloNota}}</td>
           <td>{{notasCreadas.descripcion}}</td>
           <td>{{notasCreadas.tipo}}</td>
-       
       </tr>
-  </tbody>
-  
+    </tbody>
+
+    <div class="btn" style="text-align: right;">
+        <button class="btn btn-primary btn-lg" routerLink="/new-notes" >Nueva nota</button>
+    </div>
+ 
 </table>
 </div>

@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  //notes: Note[]= [];
+  
+  notes: Note[]= [];
+
   note: Note= {
     tituloNota: "",
     descripcion: "",
@@ -23,6 +25,7 @@ export class NotesComponent implements OnInit {
   message: any =""
 
   constructor(private userService: UserService, private router: Router) { 
+    
     this.noteForm= new FormGroup({
     tituloNota: new FormControl('',[Validators.required]),
     descripcion: new FormControl('',[Validators.required]),

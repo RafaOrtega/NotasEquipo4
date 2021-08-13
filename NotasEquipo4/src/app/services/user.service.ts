@@ -30,7 +30,7 @@ export class UserService {
         this.apiServices.setNote(note)
         resolve("Exito de operacion, nota guardada")
       }else{
-        reject("Nota no guardado")
+        reject("Nota no guardado");
       }
     })
   }
