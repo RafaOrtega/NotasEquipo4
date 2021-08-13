@@ -19,6 +19,7 @@ export class NotasComponent implements OnInit{
 async getNotee(){
   try{
     this.notes = await this.userService.obtenerNotes();
+
   }catch(err){
 
   }
