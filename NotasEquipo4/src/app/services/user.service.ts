@@ -9,6 +9,7 @@ import { Note } from '../notes/notes.module';
 export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
+  validar: String="";
   
   constructor(private apiServices: ApiService) { }
   registertUser(user: Register){
@@ -51,6 +52,7 @@ logIn(email: string, password: string){
     let isUser = this.apiServices.logIn(email,password);
     if(isUser){
       resolve(true)
+     this.validar = email;
     }else{
       reject(false)
     }
