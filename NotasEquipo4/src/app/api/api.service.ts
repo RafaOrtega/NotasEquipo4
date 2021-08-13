@@ -35,7 +35,7 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users)
     return this.users
   }
-  getNotes(): Note[]{ // users POST
+  getNotes(): Note[]{ // notes POST
     this.notes = JSON.parse(localStorage.notes)
     return this.notes
   }
