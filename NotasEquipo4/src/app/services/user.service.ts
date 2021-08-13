@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
+  validar: String="";
   
   constructor(private apiServices: ApiService, private router: Router) { }
   registertUser(user: Register){
@@ -52,6 +53,7 @@ logIn(email: string, password: string){
     let isUser = this.apiServices.logIn(email,password);
     if(isUser){
       resolve(true)
+     this.validar = email;
     }else{
       reject(false)
     }
