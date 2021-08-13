@@ -53,7 +53,6 @@ logIn(email: string, password: string){
     let isUser = this.apiServices.logIn(email,password);
     if(isUser){
       resolve(true)
-     this.validar = email;
     }else{
       reject(false)
     }

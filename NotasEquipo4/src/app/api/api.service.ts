@@ -23,6 +23,7 @@ export class ApiService {
     this.router.navigateByUrl("/login")
   }
   setNote(note: Note){ // poner Nota en localStorage
+    note.emailUser=localStorage.emailLogged;
     this.notes.push(note);
     console.log(this.notes)
     localStorage.notes = JSON.stringify(this.notes);
@@ -39,8 +40,8 @@ export class ApiService {
     return this.notes
   }
 
-
 logIn(email: string, password: string): boolean {​​ // /login POST    
+  localStorage.removeItem('emailLogged');
   this.users = JSON.parse(localStorage.users || "[]");    
   let emails = this.users.map(function (e) {​​ return e.email }​​)   
   let passwords = this.users.map(function (e) {​​ return e.password }​​)    
@@ -48,7 +49,8 @@ logIn(email: string, password: string): boolean {​​ // /login POST 
   if (pos != -1) {​​      
     if (passwords[pos] === password) {​​
       localStorage.isLogIn =1;
-      //this.router.navigateByUrl("/users")
+      localStorage.emailLogged=email;
+      this.router.navigateByUrl("/users")
       return true
     }​​
     else{​​
