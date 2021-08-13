@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from '../register/registers.module';
 import { UserService } from '../services/user.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,6 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class DashboardComponent implements OnInit {
 users: Register[]=[];
+
   constructor(private userServices:UserService) { }
 
   ngOnInit(): void {
@@ -19,10 +21,18 @@ users: Register[]=[];
     }catch(err){
 
     }
-   
+
   }
   NotesUser(): void{
-    console.log("función");
-    alert("función")
+    alert("función");
   }
+
+  editUser(): void{
+    
+  }
+
+  deleteUser():void{
+    alert("Cuidado")
+  }
+
 }
