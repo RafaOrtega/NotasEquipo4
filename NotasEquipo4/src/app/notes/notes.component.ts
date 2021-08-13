@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from './notes.module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -21,9 +22,9 @@ export class NotesComponent implements OnInit {
   noteForm: FormGroup;
   message: any =""
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private router: Router) { 
     this.noteForm= new FormGroup({
-      tituloNota: new FormControl('',[Validators.required]),
+    tituloNota: new FormControl('',[Validators.required]),
     descripcion: new FormControl('',[Validators.required]),
     fechaInicio: new FormControl('',[Validators.required]),
     fechaFin: new FormControl('',[Validators.required]),
@@ -49,6 +50,7 @@ async onSubmit({value,valid}:{value: Note, valid:boolean}){
       this.message = "Tienes campos invalidos"
       console.log(this.noteForm)
     }
+  }
 
     // destructuring
     /*
@@ -64,7 +66,6 @@ async onSubmit({value,valid}:{value: Note, valid:boolean}){
     }
     this.notes.push(this.note);
     console.log(this.notes)*/
-  }
 
   /*goBack(): void{
     this.location.back();

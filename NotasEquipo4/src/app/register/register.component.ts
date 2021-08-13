@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Register } from './registers.module';
+import { NotasComponent } from '../notas/notas.component';
 
 @Component({
   selector: 'app-register',
@@ -16,8 +17,8 @@ export class RegisterComponent implements OnInit {
     telefono: "",
     email: "", 
     password: ""
-
   }
+  
   userForm: FormGroup;
   message: any =""
 

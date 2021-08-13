@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Register } from '../register/registers.module';
 import { Note } from '../notes/notes.module';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
