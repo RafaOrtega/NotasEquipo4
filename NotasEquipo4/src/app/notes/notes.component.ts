@@ -15,7 +15,8 @@ export class NotesComponent implements OnInit {
     descripcion: "",
     fechaInicio: "",
     fechaFin: "",
-    tipo: ""
+    tipo: "",
+    emailUser:""
   };
 
   noteForm: FormGroup;
