@@ -9,6 +9,7 @@
           <th>Titulo</th>
           <th>Descripcicon</th>
           <th>Tipo</th>
+          <th>Acciones</th>
          
       </tr>
   </thead>
@@ -18,7 +19,8 @@
           <td>{{notasCreadas.tituloNota}}</td>
           <td>{{notasCreadas.descripcion}}</td>
           <td>{{notasCreadas.tipo}}</td>
-       
+          <td><button class="btn btn-danger" (click)="eliminarNota(notasCreadas)">Eliminar</button>
+            <button class="btn btn-primary">Modificar</button></td>
       </tr>
   </tbody>
   
