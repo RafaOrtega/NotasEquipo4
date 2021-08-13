@@ -21,11 +21,13 @@ export class ApiService {
     this.users.push(user);
     console.log(this.users)
     localStorage.users = JSON.stringify(this.users);
+    this.router.navigateByUrl("/login")
   }
   setNote(note: Note){ // poner Nota en localStorage
     this.notes.push(note);
     console.log(this.notes)
     localStorage.notes = JSON.stringify(this.notes);
+    this.router.navigateByUrl("/notas")
   }
   //------
 

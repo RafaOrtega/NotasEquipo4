@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {  UsersComponent } from './users/users.component'
 import { HttpClientModule } from '@angular/common/http';
 import { NotesTableComponent } from './notes-table/notes-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotesTableComponent } from './notes-table/notes-table.component';
     UsersComponent,
     LoginComponent,
     NotesComponent,
-    NotesTableComponent
+    NotesTableComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
