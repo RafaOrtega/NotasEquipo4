@@ -11,6 +11,7 @@ import { Note } from '../notes/notes.module';
 export class ApiService {
   users: Register[]=[];
   notes: Note[]=[];
+  arregloNotas: Note[]=[];
 
   constructor(private router: Router) { 
     this.users = JSON.parse(localStorage.users||"[]");
@@ -39,6 +40,10 @@ export class ApiService {
   getNotes(): Note[]{ // notes POST
     this.notes = JSON.parse(localStorage.notes)
     return this.notes
+  }
+  getByEmail(): Note[]{ // notes POST
+    const arregloNotas = JSON.parse(localStorage.notes)
+    return arregloNotas.filter((e:{emailUser: string;})=> e.emailUser==localStorage.emailLogged)
   }
 
 
