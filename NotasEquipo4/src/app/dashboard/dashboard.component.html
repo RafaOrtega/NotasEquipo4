@@ -3,54 +3,52 @@
         <div class="col-md-6">
             <h2>Lista de usuarios</h2>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Correo</th>
-                        <th>Ver notas</th>
-                        <th>Editar usuario</th>
-                        <th>Eliminar usuario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let userRegister of users">
-                        <td>{{userRegister.nombre}}</td>
-                        <td>{{userRegister.apellidos}}</td>
-                        <td>{{userRegister.telefono}}</td>
-                        <td>{{userRegister.email}}</td>
-                        <td><button class="btn btn-primary" (click)="NotesUser()">notas</button></td>
-                        <td><button class="btn btn-secondary" (click)="editUser()">editar</button></td>
+            
+    <button class="btn btn-primary" (click)="NotesUser()">Ver notas</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Correo</th>     
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let userRegister of users">
+          
+            <td>{{userRegister.nombre}}</td>
+            <td>{{userRegister.apellidos}}</td>
+            <td>{{userRegister.telefono}}</td>
+            <td>{{userRegister.email}}</td>
+         
+        </tr>
+    </tbody>
+</table>
 
-                        <!-- Button trigger modal -->
-                        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Eliminar    
-                        </button></td>
-
-                        <!-- Modal -->
-                        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="modal-eliminar">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </tr>
-                </tbody>
-            </table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripcicon</th>
+            <th>Tipo</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let notasCreadas of notes">
+          
+            <td>{{notasCreadas.tituloNota}}</td>
+            <td>{{notasCreadas.descripcion}}</td>
+            <td>{{notasCreadas.tipo}}</td>
+         
+        </tr>
+    </tbody>
+    
+  </table>
+        </div>
+        <div class="col-md-6">
+            
         </div>
     </div>
 </div>

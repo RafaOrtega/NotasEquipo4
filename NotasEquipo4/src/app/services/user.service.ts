@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
-  validar: String="";
-  
-  constructor(private apiServices: ApiService, private router: Router) { }
+  notesByEmail: Note[]=[];
+  //validar: String="";
+
+  constructor(private apiServices: ApiService) { }
   registertUser(user: Register){
     return new Promise((resolve,reject)=>{
       if (user.email  != null){
@@ -45,6 +46,12 @@ obtenerNotes(){
   return new Promise<Note[]>((resolve, reject)=>{
     this.notes = this.apiServices.getNotes();
     resolve(this.notes);
+  })
+}
+obtenerNotesByEmail(){
+  return new Promise<Note[]>((resolve, reject)=>{
+    this.notesByEmail = this.apiServices.getByEmail();
+    resolve(this.notesByEmail);
   })
 }
 
