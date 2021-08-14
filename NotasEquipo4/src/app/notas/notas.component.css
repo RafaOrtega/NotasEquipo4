@@ -45,8 +45,8 @@ our_solution_category .solution_cards_box {
 /*fin para tarjeta*/
 
 .solution_cards_box .solution_card:hover {
-  background: #9ad8fa;
-  color: rgb(0, 0, 0);
+  background: #e2f0f8;
+  color: rgb(22, 79, 133);
   transform: scale(1.03);
   z-index: 9;
 }
