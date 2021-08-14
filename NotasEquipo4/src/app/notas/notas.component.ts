@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../notes/notes.module';
 import { UserService } from '../services/user.service';
 
-
 @Component({
   selector: 'app-notas',
   templateUrl: './notas.component.html',
