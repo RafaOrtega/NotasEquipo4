@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: "notas", component: NotasComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent}
- 
 ]
 
 @NgModule({

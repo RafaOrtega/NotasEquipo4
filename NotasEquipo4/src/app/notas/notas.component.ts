@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../notes/notes.module';
 import { UserService } from '../services/user.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 
 
 @Component({
@@ -11,7 +15,7 @@ import { UserService } from '../services/user.service';
 
 export class NotasComponent implements OnInit{
   notes: Note[]=[];
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getNotee();
@@ -36,7 +40,27 @@ async getNotee(){
     }
   }else{
     alert("No puedes eliminar esta nota")
+    }
   }
+  public editarNota(nota : Note){
+    if(nota.emailUser == localStorage.emailLogged){
+      let notapos = this.notes.indexOf(nota);
+      let notasArray = JSON.parse(localStorage.notes);
+      var nuevoTitulo = "Este es el nuevo titulo 3"
+      notasArray.forEach(function(item:any) {
+        if(item.emailUser == localStorage.emailLogged)
+          item.tituloNota = nuevoTitulo;
+          localStorage.setItem("notes", JSON.stringify(notasArray));
+      });
+      console.log(notasArray)
+      //this.router.navigate(["new-notes"],{queryParams: {back_url: this.router.url}})
+    }
+    else{
+      alert("No puedes modificar esta nota")
+    }
   }
+
+  
+
 
 }

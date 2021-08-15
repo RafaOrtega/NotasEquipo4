@@ -30,9 +30,6 @@ arregloUsuario:[]=[]
     const arregloUsuarios = JSON.parse(localStorage.users)
     //const arregloNotas = JSON.parse(localStorage.notes)
     //let comparacion = arregloNotas.find((a: {emailUser: string;})=>a.emailUser=localStorage.emailLogged)
-
-
-
     if(arregloUsuarios.find((e: { email: string; })=>e.email== localStorage.emailLogged)){
       //muestre todas las notas almacenadas
       //console.log(arregloUsuarios)
@@ -43,11 +40,11 @@ arregloUsuario:[]=[]
       alert("email no esta")
     }
   }
+
   async getNotas(){
     try{
       this.notes = await this.userServices.obtenerNotesByEmail()
     }catch(err){
-
     }
   }
 

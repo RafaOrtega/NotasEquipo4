@@ -1,29 +1,28 @@
-
 <div class="container">
-<table class="table">
-  <thead>
-      <tr>
-          <th>Titulo</th>
-          <th>Descripcicon</th>
-          <th>Tipo</th>
-          <th>Acciones</th>
-         
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor= "let notasCreadas of notes">
-        
-          <td>{{notasCreadas.tituloNota}}</td>
-          <td>{{notasCreadas.descripcion}}</td>
-          <td>{{notasCreadas.tipo}}</td>
-          <td><button class="btn btn-danger" (click)="eliminarNota(notasCreadas)">Eliminar</button>
-            <button class="btn btn-primary">Modificar</button></td>
-      </tr>
-    </tbody>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Descripcicon</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
 
-    <div class="btn" style="text-align: right;">
-        <button class="btn btn-primary btn-lg" routerLink="/new-notes" >Nueva nota</button>
-    </div>
- 
-</table>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let notasCreadas of notes">
+
+                <td>{{notasCreadas.tituloNota}}</td>
+                <td>{{notasCreadas.descripcion}}</td>
+                <td>{{notasCreadas.tipo}}</td>
+                <td><button class="btn btn-danger" (click)="eliminarNota(notasCreadas)">Eliminar</button>
+                <button class="btn btn-primary" (click)="editarNota(notasCreadas)">Modificar</button></td>
+            </tr>
+        </tbody>
+
+        <div class="btn" style="text-align: right;">
+            <button class="btn btn-primary btn-lg" routerLink="/new-notes">Nueva nota</button>
+        </div>
+
+    </table>
 </div>
