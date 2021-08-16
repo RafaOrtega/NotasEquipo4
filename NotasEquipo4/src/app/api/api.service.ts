@@ -40,9 +40,13 @@ export class ApiService {
     this.notes = JSON.parse(localStorage.notes)
     return this.notes
   }
-  getByEmail(): Note[]{ // notes POST
+  getByEmail(): Note[]{ // obtener Nota
     const arregloNotas = JSON.parse(localStorage.notes)
     return arregloNotas.filter((e:{emailUser: string;})=> e.emailUser==localStorage.emailLogged)
+  }
+  getUserByEmail(): Register[]{ // obtener Nota
+    const arregloUser = JSON.parse(localStorage.users)
+    return arregloUser.filter((e:{email: string;})=> e.email==localStorage.emailLogged)
   }
 
 logIn(email: string, password: string): boolean {​​ // /login POST    

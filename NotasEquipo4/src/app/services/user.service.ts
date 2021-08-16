@@ -11,6 +11,8 @@ export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
   notesByEmail: Note[]=[];
+  
+  userByEmail: Register[]=[];
   //validar: String="";
 
   constructor(private apiServices: ApiService) { }
@@ -52,6 +54,13 @@ obtenerNotesByEmail(){
   return new Promise<Note[]>((resolve, reject)=>{
     this.notesByEmail = this.apiServices.getByEmail();
     resolve(this.notesByEmail);
+  })
+}
+
+obtenerUserByEmail(){
+  return new Promise<Register[]>((resolve, reject)=>{
+    this.userByEmail = this.apiServices.getUserByEmail();
+    resolve(this.userByEmail);
   })
 }
 

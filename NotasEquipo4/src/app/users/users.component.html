@@ -1,6 +1,7 @@
 <br>
 <h2>Lista de usuarios</h2> 
 
+
 <table class="table">
     <thead>
         <tr>
@@ -13,14 +14,14 @@
     </thead>
     <tbody>
         <tr *ngFor= "let userRegister of usuarios">
-          
             <td>{{userRegister.nombre}}</td>
             <td>{{userRegister.apellidos}}</td>
             <td>{{userRegister.telefono}}</td>
             <td>{{userRegister.email}}</td>
             <td><button class="btn btn-danger" (click)="eliminarUsuario(userRegister)">Eliminar</button>
-                <button class="btn btn-primary" (click)="editarUsuario(userRegister)">Modificar</button></td>
+                <button class="btn btn-primary" name="button" [routerLink]="['/users-update',userRegister.email]">Modificar</button></td>
         </tr>
     </tbody>
     
 </table>
+        

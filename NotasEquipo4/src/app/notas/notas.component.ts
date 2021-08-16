@@ -44,7 +44,7 @@ async getNotee(){
   public editarNota(nota : Note){
     if(nota.emailUser == localStorage.emailLogged){
       let notasArray = JSON.parse(localStorage.notes);
-      var nuevoTitulo = "Este es el nuevo titulo nuevo"
+      var nuevoTitulo = "Este es el nuevo titulo"
       notasArray.forEach(function(item:any) {
         if(item.emailUser == localStorage.emailLogged)
           item.tituloNota = nuevoTitulo;
