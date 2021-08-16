@@ -24,7 +24,7 @@ arregloUsuario:[]=[]
     }catch(err){
 
     }
-   
+
   }
   NotesUser(){
     const arregloUsuarios = JSON.parse(localStorage.users)
@@ -40,11 +40,11 @@ arregloUsuario:[]=[]
       alert("email no esta")
     }
   }
+
   async getNotas(){
     try{
       this.notes = await this.userServices.obtenerNotesByEmail()
     }catch(err){
-
     }
   }
 

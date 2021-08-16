@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Lista de usuarios</h2> 
+            <h2>Lista de usuarios</h2>
 
             
     <button class="btn btn-primary" (click)="NotesUser()">Ver notas</button>
@@ -21,6 +21,7 @@
             <td>{{userRegister.apellidos}}</td>
             <td>{{userRegister.telefono}}</td>
             <td>{{userRegister.email}}</td>
+            <td><button class="btn btn-primary" ng-click="NotesUser()">notas</button></td>
          
         </tr>
     </tbody>
@@ -51,5 +52,4 @@
             
         </div>
     </div>
-
 </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Register } from '../register/registers.module';
 import { Note } from '../notes/notes.module';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class UserService {
         this.apiServices.setNote(note)
         resolve("Exito de operacion, nota guardada")
       }else{
-        reject("Nota no guardado")
+        reject("Nota no guardado");
       }
     })
   }
