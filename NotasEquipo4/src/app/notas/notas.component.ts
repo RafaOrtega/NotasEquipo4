@@ -38,5 +38,4 @@ async getNotee(){
       alert("No puedes eliminar esta nota")
     }
   }
-
 }
