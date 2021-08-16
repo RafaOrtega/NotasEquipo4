@@ -23,4 +23,19 @@ async getNotee(){
   }
 }
 
+public eliminarNota(nota: Note){
+  if(nota.emailUser==localStorage.emailLogged){
+    if(confirm("Seguro de borrar la nota? ")) {
+      let notapos= this.notes.indexOf(nota); 
+      let notasArray=JSON.parse(localStorage.notes);
+      notasArray.splice(notapos, 1)
+      localStorage.setItem("notes", JSON.stringify(notasArray));
+      window.location.reload();
+    }
+  }else{
+    alert("No puedes eliminar esta nota")
+  }
+}
+
+
 }
