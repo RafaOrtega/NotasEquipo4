@@ -11,6 +11,7 @@
 /node_modules
 /borrar
 /borrar2
+/borrar3
 # profiling files
 chrome-profiler-events*.json
 

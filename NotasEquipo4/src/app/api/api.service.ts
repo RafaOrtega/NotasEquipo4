@@ -9,6 +9,9 @@ import { Note } from '../notes/notes.module';
   providedIn: 'root'
 })
 export class ApiService {
+  getByEmail(): any {
+    throw new Error('Method not implemented.');
+  }
   users: Register[]=[];
   notes: Note[]=[];
 
