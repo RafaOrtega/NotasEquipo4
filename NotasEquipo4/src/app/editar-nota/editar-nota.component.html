@@ -1,1 +1,29 @@
-<p>editar-nota works!</p>
+<form  *ngFor="let notasCreadas of notes" >
+    <div class="mb-3">
+        <label for="titulo" class="form-label">{{notasCreadas.tituloNota}}</label>
+        <input type="text" class="form-control" placeholder="Titulo" >
+    </div>
+    <div class="mb-3">
+        <label for="descr" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" placeholder="Descripcion" >
+    </div>
+    <div class="mb-3">
+        <label for="fecha1" class="form-label">Fecha Inicio</label>
+        <input type="date" class="form-control" placeholder="Fecha inicio" >
+    </div>
+    <div class="mb-3">
+        <label for="fecha2" class="form-label">Fecha Fin</label>
+        <input type="date" class="form-control" placeholder="Fecha fin" >
+    </div>
+
+    <div class="mb-3">
+        <label for="tipoNota" class="form-label">Tipo de Nota</label>
+        <select class="form-control" >
+            <option selected disabled value="">Seleccione</option>
+            <option value="Nota">Nota</option>
+            <option value="Tarea">Tarea</option>
+            <option value="Recordatorio">Recordatorio</option>
+        </select>
+    </div>
+  <!--routerLink="/notas" > al poner este redireccionamiento ya no guarda la ultima nota-->
+</form>
