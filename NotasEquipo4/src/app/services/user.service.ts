@@ -9,7 +9,7 @@ import { Note } from '../notes/notes.module';
 export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
-  validar: String="";
+  notesByEmail: any;
   
   constructor(private apiServices: ApiService) { }
   registertUser(user: Register){
@@ -47,12 +47,18 @@ obtenerNotes(){
   })
 }
 
+
+obtenerNotesByEmail(){
+  return new Promise<Note[]>((resolve, reject)=>{
+    this.notesByEmail = this.apiServices.getByEmail();
+    resolve(this.notesByEmail);
+  })
+}
 logIn(email: string, password: string){
   return new Promise((resolve,reject)=>{
     let isUser = this.apiServices.logIn(email,password);
     if(isUser){
       resolve(true)
-     this.validar = email;
     }else{
       reject(false)
     }
@@ -62,6 +68,7 @@ logIn(email: string, password: string){
 isLogin(){
   return this.apiServices.getIsLogin();
 }
+
 
 }
 

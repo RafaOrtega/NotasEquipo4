@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditarNotaComponent } from './editar-nota/editar-nota.component';
+import { EliminarNotaComponent } from './eliminar-nota/eliminar-nota.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditarNotaComponent } from './editar-nota/editar-nota.component';
     NotesComponent,
     NotesTableComponent,
     DashboardComponent,
-    EditarNotaComponent
+    EditarNotaComponent,
+    EliminarNotaComponent
   ],
   imports: [
     BrowserModule,
