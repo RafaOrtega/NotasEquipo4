@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../notes/notes.module';
 import { UserService } from '../services/user.service';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 import { Router } from '@angular/router';
-import { NgModule } from '@angular/core';
 
 
 @Component({
@@ -41,11 +39,12 @@ async getNotee(){
     alert("No puedes eliminar esta nota")
     }
   }
+
+   //METODO PARA EDITAR LAS NOTAS DE MANERA ESTATICA
   public editarNota(nota : Note){
     if(nota.emailUser == localStorage.emailLogged){
-      let notapos = this.notes.indexOf(nota);
       let notasArray = JSON.parse(localStorage.notes);
-      var nuevoTitulo = "Este es el nuevo titulo 3"
+      var nuevoTitulo = "Este es el nuevo titulo nuevo"
       notasArray.forEach(function(item:any) {
         if(item.emailUser == localStorage.emailLogged)
           item.tituloNota = nuevoTitulo;
