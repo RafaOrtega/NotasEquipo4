@@ -19,13 +19,32 @@ export class UsersUpdateComponent implements OnInit {
     this.getUser();
   }
 
-
-
 async getUser(){
   try{
     this.user = await this.userService.obtenerUserByEmail()
   }catch(err){
 
+  }
+}
+
+public editarUsuario(usuario : Register){
+  if(usuario.email == localStorage.emailLogged){
+    var nuevoNombre =  (<HTMLInputElement>document.getElementById("nombre")).value
+    var nuevoApellido = (<HTMLInputElement>document.getElementById("apellidos")).value
+    var nuevoTelefono = (<HTMLInputElement>document.getElementById("telefono")).value
+    let usersArray = JSON.parse(localStorage.users);
+    usersArray.forEach(function(item: Register) {
+      if(item.email == localStorage.emailLogged){
+        item.nombre = nuevoNombre;
+        item.apellidos = nuevoApellido;
+        item.telefono = nuevoTelefono;
+        localStorage.setItem("users", JSON.stringify(usersArray));
+      }
+    });
+    console.log(usersArray)
+  }
+  else{
+    alert("No puedes modificar este usuario")
   }
 }
 
