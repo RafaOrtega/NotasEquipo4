@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { loginModule } from './login.module';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { ThisReceiver } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
   login: loginModule={
     email: "",
     password:""
-
   }
-  constructor(private userServices: UserService) { }
+
+  constructor(private userServices: UserService,private router: Router) { }
   
 
   ngOnInit(): void {
@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
   async loginUser(email:any,password:any){
     try{
       let valor = await this.userServices.logIn(email,password);
+      //this.loggin
+      this.router.navigate(["users"],{queryParams: {back_url: this.router.url}})
       console.log(valor);
     }catch(err){
       console.log(err);
