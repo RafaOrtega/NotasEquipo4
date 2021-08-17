@@ -42,6 +42,7 @@ public editarUsuario(usuario : Register){
       }
     });
     console.log(usersArray)
+    //this.router.navigate(["new-notes"],{queryParams: {back_url: this.router.url}})
   }
   else{
     alert("No puedes modificar este usuario")
