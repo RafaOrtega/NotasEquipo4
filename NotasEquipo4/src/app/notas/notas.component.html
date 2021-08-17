@@ -30,11 +30,14 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
             <h2>Mis notas</h2>
-        </div>
-        <div class="col-md-9">
-            <button class="btn btn-primary" routerLink="/new-notes" style="float: right;"><svg
+            <button type="button" class="btn btn-primary" data-dismiss="modal" style="float: left;"
+                routerLink="/users"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                  </svg>Usuarios</button>
+
+                  <button class="btn btn-primary" routerLink="/new-notes" style="float: right;"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-journal-plus" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -45,6 +48,9 @@
                         d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
                 </svg>Nueva nota</button>
         </div>
+        <!-- <div class="col-md-9">
+            
+        </div> -->
 
     </div>
     <!-- <div *ngFor="let notasCreadas of notes" style="float: left;">
@@ -187,30 +193,32 @@
                                     </svg>&nbsp;&nbsp;<small class="text-danger"><span>Fin:
                                             {{notasCreadas.fechaFin}}</span> </small></p>
 
-                                <button class="btn btn-danger" style="float: right;" type="button" (click)="eliminarNota(notasCreadas)" data-toggle="modal"
+                                <button class="btn btn-danger" style="float: right;" type="button"
+                                    (click)="eliminarNota(notasCreadas)" data-toggle="modal"
                                     data-target="#borrarModal"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                         height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                         <path
                                             d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                                     </svg>Eliminar</button>
 
-                                <button class="btn btn-warning" style="float: left;" (click)="esValido(notasCreadas)" type="button" data-toggle="modal"
-                                    data-target="#editarModal"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                        height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <button class="btn btn-warning" style="float: left;" (click)="esValido(notasCreadas)"
+                                    type="button" data-toggle="modal" data-target="#editarModal"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-pen" viewBox="0 0 16 16">
                                         <path
                                             d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
                                     </svg>Editar</button>
                             </div>
                         </div>
-                        
-      
+
+
                     </div>
                 </div>
             </div>
         </div>
         <!-- Fin prueba card-->
 
-  <!-- Inicio Modal-->
+        <!-- Inicio Modal-->
 
         <!-- Modal editar-->
         <!-- <div class="modal fade" id="editarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
@@ -230,12 +238,12 @@
             </div>
         </div>
     </div> -->
-    <!-- Fin Modal editar-->
+        <!-- Fin Modal editar-->
 
-    <!-- Inicio Modal-->
+        <!-- Inicio Modal-->
 
-    <!-- Modal editar-->
-    <!-- <div class="modal fade" id="borrarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        <!-- Modal editar-->
+        <!-- <div class="modal fade" id="borrarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
         aria-labelledby="borrarModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -266,6 +274,8 @@
             </div>
         </div>
     </div> -->
+
+        <!-- Fin Modal editar-->
+
+    </div>
 </div>
-</div>
-<!-- Fin Modal editar-->

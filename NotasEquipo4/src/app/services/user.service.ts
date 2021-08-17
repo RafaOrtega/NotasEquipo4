@@ -8,17 +8,17 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  users: Register[]=[];
-  notes: Note[]=[];
-  notesByEmail: Note[]=[];
-  
-  userByEmail: Register[]=[];
+  users: Register[] = [];
+  notes: Note[] = [];
+  notesByEmail: Note[] = [];
+
+  userByEmail: Register[] = [];
   //validar: String="";
 
   constructor(private apiServices: ApiService) { }
-  registertUser(user: Register){
-    return new Promise((resolve,reject)=>{
-      if (user.email  != null){
+  registertUser(user: Register) {
+    return new Promise((resolve, reject) => {
+      if (user.email != null) {
         this.apiServices.setUser(user)
         resolve("Exito en la operacion, usuario insertado correctamente")
       } else {
@@ -27,57 +27,60 @@ export class UserService {
     })
   }
 
-  nuevaNota(note: Note){
-    return new Promise((resolve,reject)=>{
-      if(note.tituloNota != null){
+  nuevaNota(note: Note) {
+    return new Promise((resolve, reject) => {
+      if (note.tituloNota != null) {
         this.apiServices.setNote(note)
         resolve("Exito de operacion, nota guardada")
-      }else{
+      } else {
         reject("Nota no guardado");
       }
     })
   }
-getUsers(){
-  return new Promise<Register[]>((resolve, reject)=>{
-    this.users = this.apiServices.getUsers();
-    resolve(this.users);
-  })
-}
+  getUsers() {
+    return new Promise<Register[]>((resolve, reject) => {
+      this.users = this.apiServices.getUsers();
+      resolve(this.users);
+    })
+  }
 
-obtenerNotes(){
-  return new Promise<Note[]>((resolve, reject)=>{
-    this.notes = this.apiServices.getNotes();
-    resolve(this.notes);
-  })
-}
-obtenerNotesByEmail(){
-  return new Promise<Note[]>((resolve, reject)=>{
-    this.notesByEmail = this.apiServices.getByEmail();
-    resolve(this.notesByEmail);
-  })
-}
+  obtenerNotes() {
+    return new Promise<Note[]>((resolve, reject) => {
+      this.notes = this.apiServices.getNotes();
+      resolve(this.notes);
+    })
+  }
 
-obtenerUserByEmail(){
-  return new Promise<Register[]>((resolve, reject)=>{
-    this.userByEmail = this.apiServices.getUserByEmail();
-    resolve(this.userByEmail);
-  })
-}
 
-logIn(email: string, password: string){
-  return new Promise((resolve,reject)=>{
-    let isUser = this.apiServices.logIn(email,password);
-    if(isUser){
-      resolve(true)
-    }else{
-      reject(false)
-    }
-  })
-}
+  obtenerUserByEmail() {
+    return new Promise<Register[]>((resolve, reject) => {
+      this.userByEmail = this.apiServices.getUserByEmail();
+      resolve(this.userByEmail);
+    })
+  }
 
-isLogin(){
-  return this.apiServices.getIsLogin();
-}
+
+  obtenerNotesByEmail() {
+    return new Promise<Note[]>((resolve, reject) => {
+      this.notesByEmail = this.apiServices.getByEmail();
+      resolve(this.notesByEmail);
+    })
+  }
+  logIn(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      let isUser = this.apiServices.logIn(email, password);
+      if (isUser) {
+        resolve(true)
+      } else {
+        reject(false)
+      }
+    })
+  }
+
+  isLogin() {
+    return this.apiServices.getIsLogin();
+  }
+
 
 }
 

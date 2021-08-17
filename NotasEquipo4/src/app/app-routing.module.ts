@@ -11,15 +11,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersUpdateComponent } from './users-update/users-update.component';
 import { NotasUpdateComponent } from './notas-update/notas-update.component';
 
+import { EditarNotaComponent } from './editar-nota/editar-nota.component';
 const routes: Routes = [
-  { path: "register", component: RegisterComponent},
-  { path: "users", component: UsersComponent, canActivate: [AuthGuardService]},
-  { path: "users-update/:email", component: UsersUpdateComponent},
-  { path: 'new-notes', component: NotesComponent},
-  { path: "notas", component: NotasComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: "notas-update/:email", component: NotasUpdateComponent}
+  { path: "register", component: RegisterComponent },
+  { path: "users", component: UsersComponent, canActivate: [AuthGuardService] },
+  { path: "users-update/:email", component: UsersUpdateComponent },
+  { path: 'new-notes', component: NotesComponent },
+  { path: "notas", component: NotasComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: "notas-update/:email", component: NotasUpdateComponent },
+  { path: 'editar', component: EditarNotaComponent }
+
 ]
 
 @NgModule({

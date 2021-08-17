@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./editar-nota.component.css']
 })
 export class EditarNotaComponent implements OnInit {
-  notas: Note[]=[];
+  notes: Note[]=[];
   constructor(private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class EditarNotaComponent implements OnInit {
   
   async getNotee(){
     try{
-      this.notas = await this.userService.obtenerNotesByEmail();
+      this.notes = await this.userService.obtenerNotesByEmail();
   
     }catch(err){
   
@@ -51,7 +51,7 @@ export class EditarNotaComponent implements OnInit {
  public eliminarNota(nota: Note){
   if(nota.emailUser==localStorage.emailLogged){
     if(confirm("Seguro de borrar la nota? ")) {
-      let notapos= this.notas.indexOf(nota); 
+      let notapos= this.notes.indexOf(nota); 
       let notasArray=JSON.parse(localStorage.notes);
       notasArray.splice(notapos, 1)
       localStorage.setItem("notes", JSON.stringify(notasArray));

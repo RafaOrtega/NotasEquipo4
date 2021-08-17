@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
-
-
 import { Register } from '../register/registers.module';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-users-update',
   templateUrl: './users-update.component.html',
@@ -26,7 +24,15 @@ async getUser(){
 
   }
 }
-
+showalertbonita(){
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Tu usuario ha sido modificado',
+    showConfirmButton: false,
+    timer: 3000
+  })
+}
 public editarUsuario(usuario : Register){
   if(usuario.email == localStorage.emailLogged){
     var nuevoNombre =  (<HTMLInputElement>document.getElementById("nombre")).value
@@ -41,7 +47,9 @@ public editarUsuario(usuario : Register){
         localStorage.setItem("users", JSON.stringify(usersArray));
       }
     });
-    console.log(usersArray)
+    this.router.navigateByUrl("/users")
+      this.showalertbonita()
+    /*console.log(usersArray)*/
     //this.router.navigate(["new-notes"],{queryParams: {back_url: this.router.url}})
   }
   else{

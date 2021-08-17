@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { NotesComponent } from './notes/notes.component';
 import { AppRoutingModule } from './app-routing.module';
-import {  UsersComponent } from './users/users.component'
+import { UsersComponent } from './users/users.component'
 import { HttpClientModule } from '@angular/common/http';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

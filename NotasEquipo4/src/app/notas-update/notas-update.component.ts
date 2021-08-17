@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class NotasUpdateComponent implements OnInit {
 
-  notas: Note[]=[];
+  notes: Note[]=[];
   constructor(private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class NotasUpdateComponent implements OnInit {
 
   async getNotee(){
     try{
-      this.notas = await this.userService.obtenerNotesByEmail();
+      this.notes = await this.userService.obtenerNotesByEmail();
   
     }catch(err){
   
