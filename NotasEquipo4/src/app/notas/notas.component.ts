@@ -41,23 +41,15 @@ async getNotee(){
   }
 
    //METODO PARA EDITAR LAS NOTAS DE MANERA ESTATICA
-  public editarNota(nota : Note){
+
+   esValido(nota:Note){
     if(nota.emailUser == localStorage.emailLogged){
-      let notasArray = JSON.parse(localStorage.notes);
-      var nuevoTitulo = "Este es el nuevo titulo"
-      notasArray.forEach(function(item:any) {
-        if(item.emailUser == localStorage.emailLogged)
-          item.tituloNota = nuevoTitulo;
-          localStorage.setItem("notes", JSON.stringify(notasArray));
-      });
-      console.log(notasArray)
-      //this.router.navigate(["new-notes"],{queryParams: {back_url: this.router.url}})
+      this.router.navigate(["/notas-update","usuario.email"],{queryParams: {back_url: this.router.url}})
     }
     else{
-      alert("No puedes modificar esta nota")
+      alert("No coinciden los correos")
     }
   }
-
   
 
 
