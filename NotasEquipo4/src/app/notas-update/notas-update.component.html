@@ -1,0 +1,24 @@
+<p>estas en el notas </p>
+<form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripcicon</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let notasRegister of nota">
+            <td><input type="text" name="titulo" id="titulo"value={{notasRegister.titulos}}></td>
+            <td><input type="text" name="descripcicon" id="descripcicon" value={{notasRegister.descripcicon}}></td>
+            <td><input type="text" name="telefono" id="telefono" value={{notasRegister.telefono}}></td>
+            
+            <td><input class="btn btn-primary" type="submit" (click)="editarNotas(notasRegister)" value="Guardar"></td>
+       </tr>
+    </tbody>
+    
+</table>
+</form>
