@@ -187,14 +187,14 @@
                                     </svg>&nbsp;&nbsp;<small class="text-danger"><span>Fin:
                                             {{notasCreadas.fechaFin}}</span> </small></p>
 
-                                <button class="btn btn-danger" style="float: right;" type="button" data-toggle="modal"
+                                <button class="btn btn-danger" style="float: right;" type="button" (click)="eliminarNota(notasCreadas)" data-toggle="modal"
                                     data-target="#borrarModal"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                         height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                         <path
                                             d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                                     </svg>Eliminar</button>
 
-                                <button class="btn btn-warning" style="float: left;" type="button" data-toggle="modal"
+                                <button class="btn btn-warning" style="float: left;" (click)="esValido(notasCreadas)" type="button" data-toggle="modal"
                                     data-target="#editarModal"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                         height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                         <path
@@ -202,69 +202,70 @@
                                     </svg>Editar</button>
                             </div>
                         </div>
+                        
+      
                     </div>
                 </div>
             </div>
         </div>
         <!-- Fin prueba card-->
 
-
-        <!-- Inicio Modal-->
+  <!-- Inicio Modal-->
 
         <!-- Modal editar-->
-        <div class="modal fade" id="editarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
-            aria-labelledby="editarModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Editar nota</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Aquí debe dde estar editar nonta</p>
-                    </div>
+        <!-- <div class="modal fade" id="editarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="editarModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Editar nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <app-editar-nota></app-editar-nota>
+                </div>
 
+            </div>
+        </div>
+    </div> -->
+    <!-- Fin Modal editar-->
+
+    <!-- Inicio Modal-->
+
+    <!-- Modal editar-->
+    <!-- <div class="modal fade" id="borrarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="borrarModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Eliminar nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 1.2em ;">¿Estas seguro de eliminar la nota <span style="color: red;">("Aquí
+                            va el título de la
+                            nota")</span> </p>
+                    <button type="button" class="btn btn-primary" style="float: left"  ><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
+                        </svg>Yes!!</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="float: right;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
+                        </svg>Cancelar</button>
                 </div>
             </div>
         </div>
-        <!-- Fin Modal editar-->
-
-        <!-- Inicio Modal-->
-
-        <!-- Modal editar-->
-        <div class="modal fade" id="borrarModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
-            aria-labelledby="borrarModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Eliminar nota</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p style="font-size: 1.2em ;">¿Estas seguro de eliminar la nota <span style="color: red;">("Aquí
-                                va el título de la
-                                nota")</span> </p>
-                        <button type="button" class="btn btn-primary" style="float: left"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-check-lg" viewBox="0 0 16 16">
-                                <path
-                                    d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
-                            </svg>Yes!!</button>
-
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="float: right;"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path
-                                    d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-                            </svg>Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> -->
+</div>
 </div>
 <!-- Fin Modal editar-->

@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersUpdateComponent } from './users-update/users-update.component';
 import { NotasUpdateComponent } from './notas-update/notas-update.component';
 import { EditarNotaComponent } from './editar-nota/editar-nota.component';
+import { EliminarNotaComponent } from './eliminar-nota/eliminar-nota.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditarNotaComponent } from './editar-nota/editar-nota.component';
     DashboardComponent,
     UsersUpdateComponent,
     NotasUpdateComponent,
-    EditarNotaComponent
+    EditarNotaComponent,
+    EliminarNotaComponent
   ],
   imports: [
     BrowserModule,

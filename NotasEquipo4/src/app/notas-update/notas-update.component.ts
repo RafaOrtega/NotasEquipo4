@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Note } from '../notes/notes.module';
 import { UserService } from '../services/user.service';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-notas-update',
@@ -26,6 +26,15 @@ export class NotasUpdateComponent implements OnInit {
   
     }
   }
+  showalertbonita(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Tu nota ha sido editada',
+      showConfirmButton: false,
+      timer: 3000
+    })
+  }
   public editarNota(nota : Note){
     if(nota.emailUser == localStorage.emailLogged){
       var nuevoTitulo=  (<HTMLInputElement>document.getElementById("tituloNota")).value
@@ -42,9 +51,12 @@ export class NotasUpdateComponent implements OnInit {
           item.fechaFin = nuevaFechaFin;
           item.tipo = nuevoTipo;
           localStorage.setItem("notes", JSON.stringify(notasArray));
+          
         }
       });
-      console.log(notasArray)
+      this.router.navigateByUrl("/notas")
+      this.showalertbonita()
+      /*console.log(notasArray)*/
     }
     else{
       alert("No puedes modificar este usuario")
