@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Register } from '../register/registers.module';
 import { Note } from '../notes/notes.module';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,11 @@ import { Note } from '../notes/notes.module';
 export class UserService {
   users: Register[]=[];
   notes: Note[]=[];
-  validar: String="";
+  notesByEmail: Note[]=[];
   
+  userByEmail: Register[]=[];
+  //validar: String="";
+
   constructor(private apiServices: ApiService) { }
   registertUser(user: Register){
     return new Promise((resolve,reject)=>{
@@ -29,7 +33,7 @@ export class UserService {
         this.apiServices.setNote(note)
         resolve("Exito de operacion, nota guardada")
       }else{
-        reject("Nota no guardado")
+        reject("Nota no guardado");
       }
     })
   }
@@ -46,13 +50,25 @@ obtenerNotes(){
     resolve(this.notes);
   })
 }
+obtenerNotesByEmail(){
+  return new Promise<Note[]>((resolve, reject)=>{
+    this.notesByEmail = this.apiServices.getByEmail();
+    resolve(this.notesByEmail);
+  })
+}
+
+obtenerUserByEmail(){
+  return new Promise<Register[]>((resolve, reject)=>{
+    this.userByEmail = this.apiServices.getUserByEmail();
+    resolve(this.userByEmail);
+  })
+}
 
 logIn(email: string, password: string){
   return new Promise((resolve,reject)=>{
     let isUser = this.apiServices.logIn(email,password);
     if(isUser){
       resolve(true)
-     this.validar = email;
     }else{
       reject(false)
     }

@@ -11,6 +11,8 @@ import {  UsersComponent } from './users/users.component'
 import { HttpClientModule } from '@angular/common/http';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersUpdateComponent } from './users-update/users-update.component';
+import { NotasUpdateComponent } from './notas-update/notas-update.component';
 import { EditarNotaComponent } from './editar-nota/editar-nota.component';
 
 @NgModule({
@@ -24,6 +26,8 @@ import { EditarNotaComponent } from './editar-nota/editar-nota.component';
     NotesComponent,
     NotesTableComponent,
     DashboardComponent,
+    UsersUpdateComponent,
+    NotasUpdateComponent,
     EditarNotaComponent
   ],
   imports: [

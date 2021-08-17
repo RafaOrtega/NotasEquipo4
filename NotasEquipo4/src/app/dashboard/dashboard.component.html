@@ -1,16 +1,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Lista de usuarios</h2> 
+            <h2>Lista de usuarios</h2>
 
+            
+    <button class="btn btn-primary" (click)="NotesUser()">Ver notas</button>
 <table class="table">
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Telefono</th>
-            <th>Correo</th>
-            <th>Ver notas</th>         
+            <th>Correo</th>     
         </tr>
     </thead>
     <tbody>
@@ -24,12 +25,31 @@
          
         </tr>
     </tbody>
-    
 </table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripcicon</th>
+            <th>Tipo</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let notasCreadas of notes">
+          
+            <td>{{notasCreadas.tituloNota}}</td>
+            <td>{{notasCreadas.descripcion}}</td>
+            <td>{{notasCreadas.tipo}}</td>
+         
+        </tr>
+    </tbody>
+    
+  </table>
         </div>
         <div class="col-md-6">
             
         </div>
     </div>
-
 </div>

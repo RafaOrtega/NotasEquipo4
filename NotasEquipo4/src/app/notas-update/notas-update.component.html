@@ -1,0 +1,35 @@
+<p>notas-update works!</p>
+
+<form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo Nota</th>
+            <th>Descripcion</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Tipo de nota</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let note of notas">
+            <td><input type="text" name="tituloNota" id="tituloNota" value={{note.tituloNota}}></td>
+            <td><input type="text" name="descripcion" id="descripcion" value={{note.descripcion}}></td>
+            <td><input type="date" name="fechaIni" id="fechaInicio" value={{note.fechaInicio}}></td>
+            <td><input type="date" name="fechaFin" id="fechaFin" value={{note.fechaFin}}></td>
+           <!-- <td><input type="text" name="tipo" id="tipo" value={{note.tipo}}>-->
+            <td>
+                <select class="form-select" id="tipo" value={{note.tipo}}>
+                    <option selected disabled value="">Seleccione</option>
+                    <option value="Nota">Nota</option>
+                    <option value="Tarea">Tarea</option>
+                    <option value="Recordatorio">Recordatorio</option>
+                </select>
+            </td>
+            <td><input class="btn btn-primary" type="submit" (click)="editarNota(note)" value="Guardar"></td>
+       </tr>
+    </tbody>
+    
+</table>
+</form>

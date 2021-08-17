@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
 import { Register } from './registers.module';
+import { UserService } from '../services/user.service';
+import { NotesComponent } from '../notes/notes.component';
+import { Note } from '../notes/notes.module';
+import { ApiService } from '../api/api.service';
 
 @Component({
   selector: 'app-register',
@@ -15,15 +18,17 @@ export class RegisterComponent implements OnInit {
     apellidos:"",
     telefono: "",
     email: "", 
-    password: ""
-
+    password: "",
+    notes : []=[]
   }
+  
   userForm: FormGroup;
-  message: any =""
+  message: any = ""
 
   constructor(private userService: UserService) {
+    
     this.userForm = new FormGroup({
-      nombre: new FormControl('',[Validators.required]),
+    nombre: new FormControl('',[Validators.required]),
     apellidos:new FormControl('',[Validators.required]),
     telefono: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required]), 
