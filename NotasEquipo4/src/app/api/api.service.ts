@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
-
 import { Register } from '../register/registers.module';
 import { Note } from '../notes/notes.module';
-
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +25,21 @@ export class ApiService {
     localStorage.users = JSON.stringify(this.users);
     this.router.navigateByUrl("/login")
   }
+  showalertbonita(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Tu nota ha sido guardada',
+      showConfirmButton: false,
+      timer: 3000
+    })
+  }
   setNote(note: Note){ // poner Nota en localStorage
     this.notes.push(note);
     console.log(this.notes)
     localStorage.notes = JSON.stringify(this.notes);
     this.router.navigateByUrl("/notas")
+    this.showalertbonita()
   }
   //------
 

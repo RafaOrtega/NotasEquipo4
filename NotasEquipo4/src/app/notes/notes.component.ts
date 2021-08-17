@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from './notes.module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -17,7 +17,13 @@ export class NotesComponent implements OnInit {
     fechaFin: "",
     tipo: ""
   };
-
+  showalertbonita(){
+    Swal.fire({
+      title: 'Ey!!',
+      text: "Aún hay campos pendientes por llenar",
+      icon: 'warning',
+    })
+  }
   noteForm: FormGroup;
   message: any =""
 
@@ -46,10 +52,11 @@ async onSubmit({value,valid}:{value: Note, valid:boolean}){
       }
       this.noteForm.reset()
     }else{
+      this.showalertbonita()
       this.message = "Tienes campos invalidos"
       console.log(this.noteForm)
     }
-
+    
     // destructuring
     /*
   const {tituloNota,descripcion,fechaInicio,fechaFin,tipo,estatus} = fg.value

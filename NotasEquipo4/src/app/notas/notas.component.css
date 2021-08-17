@@ -155,6 +155,12 @@ our_solution_category .solution_cards_box {
     top: 0;
   }
 
+    .container{
+        padding-top: 13%;
+    }
+        
+
+
   .our_solution_category {
     width: 100%;
     margin: 0 auto;
@@ -164,17 +170,22 @@ our_solution_category .solution_cards_box {
     flex: auto;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
   .our_solution_category .solution_cards_box {
     flex: 1;
   }
+  .container{
+    padding-top: 5%;
+}
 }
 @media only screen and (min-width: 1024px) {
   .sol_card_top_3 {
     position: relative;
     top: 0;
   }
-
+  .container{
+    padding-top: 0%;
+}
   .our_solution_category {
     width: 100%;
     margin: 0 auto;
