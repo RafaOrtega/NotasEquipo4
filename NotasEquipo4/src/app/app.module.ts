@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersUpdateComponent } from './users-update/users-update.component';
+import { NotasUpdateComponent } from './notas-update/notas-update.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UsersUpdateComponent } from './users-update/users-update.component';
     NotesComponent,
     NotesTableComponent,
     DashboardComponent,
-    UsersUpdateComponent
+    UsersUpdateComponent,
+    NotasUpdateComponent
   ],
   imports: [
     BrowserModule,
