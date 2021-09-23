@@ -1,2 +1,2 @@
 # NotasEquipo4
-Proyecto de notas del Equipo 4
+Proyecto de Angular CLI y servicios REST
